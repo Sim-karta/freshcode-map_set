@@ -1,3 +1,7 @@
+const messageGroup = document.querySelector(".messages");
+const outputNamesBtn = messageGroup.querySelector(".output-names-btn");
+const outputMessagesBtn = messageGroup.querySelector(".output-messages-btn");
+
 const messages = [
     { id: 1, name: "Ivo", message: "hello", date: new Date() },
     { id: 2, name: "Ivo", message: "how are you", date: new Date() },
@@ -38,5 +42,10 @@ function readUsersMessages(messages) {
     return usersMessages;
 }
 
-console.log(readUsersNames(messages));
-console.log(readUsersMessages(messages));
+outputNamesBtn.addEventListener("click", () => {
+    console.log(readUsersNames(messages));
+});
+
+outputMessagesBtn.addEventListener("click", () => {
+    console.log(readUsersMessages(messages));
+});
