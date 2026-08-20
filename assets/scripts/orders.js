@@ -7,21 +7,25 @@ const orders = [
     { id: 106, customer: "Maria", category: "Books", amount: 200 },
 ];
 
-const customers = new Map();
+function readCustomersInfo(orders) {
+    const customers = new Map();
 
-for (order of orders) {
-    if (!customers.has(order.customer)) {
-        customers.set(order.customer, {
-            totalAmount: order.amount,
-            ordersCount: 1,
-            categories: new Set().add(order.category),
-        });
-    } else {
-        const customer = customers.get(order.customer);
-        customer.totalAmount += order.amount;
-        customer.ordersCount++;
-        customer.categories.add(order.category);
+    for (order of orders) {
+        if (!customers.has(order.customer)) {
+            customers.set(order.customer, {
+                totalAmount: order.amount,
+                ordersCount: 1,
+                categories: new Set().add(order.category),
+            });
+        } else {
+            const customer = customers.get(order.customer);
+            customer.totalAmount += order.amount;
+            customer.ordersCount++;
+            customer.categories.add(order.category);
+        }
     }
+
+    return customers;
 }
 
-console.dir(customers);
+console.dir(readCustomersInfo(orders));
