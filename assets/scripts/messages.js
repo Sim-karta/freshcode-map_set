@@ -11,4 +11,26 @@ const usersNames = new Set(
     }),
 );
 
+const usersMessages = new Map();
+
+for (message of messages) {
+    if (!usersMessages.has(message.name)) {
+        usersMessages.set(message.name, [
+            {
+                message: message.message,
+                date: message.date,
+            },
+        ]);
+    } else {
+        usersMessages.set(message.name, [
+            ...usersMessages.get(message.name),
+            {
+                message: message.message,
+                date: message.date,
+            },
+        ]);
+    }
+}
+
 console.log(usersNames);
+console.log(usersMessages);
