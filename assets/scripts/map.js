@@ -1,3 +1,6 @@
+const mapGroup = document.querySelector(".map");
+const correctTextBtn = mapGroup.querySelector(".correct-text-btn");
+
 const numerals = new Map([
     ["1", "first"],
     ["2", "second"],
@@ -26,4 +29,8 @@ function corrextText(text) {
         .join(" ");
 }
 
-console.log(corrextText(text));
+correctTextBtn.addEventListener("click", () => {
+    const userText = prompt("Write text");
+
+    console.log(corrextText(userText ? userText : text));
+});
