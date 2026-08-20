@@ -1,3 +1,6 @@
+const ordersGroup = document.querySelector(".orders");
+const outputCustomersBtn = ordersGroup.querySelector(".output-customers-btn");
+
 const orders = [
     { id: 101, customer: "Elena", category: "Electronics", amount: 1200 },
     { id: 102, customer: "Ihor", category: "Clothing", amount: 300 },
@@ -28,4 +31,6 @@ function readCustomersInfo(orders) {
     return customers;
 }
 
-console.dir(readCustomersInfo(orders));
+outputCustomersBtn.addEventListener("click", () => {
+    console.dir(readCustomersInfo(orders));
+});
