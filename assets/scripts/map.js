@@ -14,17 +14,16 @@ const text =
     "This year I will enter the 1 grade. I have two brothers. I am the 3 child of my parents.";
 
 function corrextText(text) {
-    const wordsArr = text.split(" ");
+    return text
+        .split(" ")
+        .map((word) => {
+            if (numerals.has(word)) {
+                return numerals.get(word);
+            }
 
-    const newWordsArr = wordsArr.map((word) => {
-        if (numerals.has(word)) {
-            return numerals.get(word);
-        }
-
-        return word;
-    });
-
-    return newWordsArr.join(" ");
+            return word;
+        })
+        .join(" ");
 }
 
 console.log(corrextText(text));
